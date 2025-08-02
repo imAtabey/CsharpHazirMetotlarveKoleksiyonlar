@@ -117,3 +117,106 @@ Console.WriteLine(Math.Log10(10)); // 10'un log10 da karşılığı
 
 
 #endregion
+
+#region Koleksiyonlar-Genereic List
+// List<T> class
+//System.Collections.Generic namespace altında bulunur
+// T-> obje türünü belli eder
+
+List<int> sayiListesi = new List<int>();
+sayiListesi.Add(23);
+sayiListesi.Add(10);
+sayiListesi.Add(4);
+sayiListesi.Add(5);
+sayiListesi.Add(92);
+sayiListesi.Add(34);
+
+List<string> renkListesi = new List<string>();
+renkListesi.Add("Kırmızı");
+renkListesi.Add("Mavi");
+renkListesi.Add("Turuncu");
+renkListesi.Add("Sarı");
+renkListesi.Add("Yeşil");
+
+// Count -> Eleman sayısını döner
+Console.WriteLine(renkListesi.Count());
+Console.WriteLine(sayiListesi.Count());
+
+// Foreach ve List.Foreach ile elemanlara erişim
+foreach (var sayi in sayiListesi)
+    Console.WriteLine(sayiListesi);
+foreach (var renk in renkListesi)
+    Console.WriteLine(sayiListesi);
+
+sayiListesi.ForEach(sayi => Console.WriteLine(sayiListesi));
+sayiListesi.ForEach(renk => Console.WriteLine(renkListesi));
+
+// Remove -> Eleman çıkartma
+sayiListesi.Remove(4);
+renkListesi.Remove("Yeşil");
+
+// RemoveAt -> İlgili index elemanını çıkarır
+sayiListesi.RemoveAt(0); //[0] elemanı çıkarır yani 1. eleman
+renkListesi.RemoveAt(1); // [1] elemanı yani 2. elemanı çıkarır
+
+// Contains -> Liste içerisinde ilgili elemanı arar.
+if (sayiListesi.Contains(10))
+    Console.WriteLine("10 Liste içerisinde bulundu");
+
+// BinarySearch -> Eleman için ilgili index numarasını getirir.
+Console.WriteLine(renkListesi.BinarySearch("Sarı"));
+
+// Diziyi koleksiyona çevirme
+string[] hayvanlar = { "Kedi", "Köpek", "Kuş" };
+List<string> hayvanListesi = new List<string>(hayvanlar);
+
+// Clear -> Koleksiyonu temizler
+hayvanListesi.Clear();
+
+// Liste içerisinde Nesne Tutma
+List<Kullanicilar> kullaniciListesi = new List<Kullanicilar>();
+
+Kullanicilar k1 = new Kullanicilar();
+k1.Isim = "Hüseyin";
+k1.Soyisim = "YILMAZ";
+k1.Yas = 32;
+
+Kullanicilar k2 = new Kullanicilar();
+k2.Isim = "Hasan";
+k2.Soyisim = "YILMAZ";
+k2.Yas = 32;
+
+kullaniciListesi.Add(k1);
+kullaniciListesi.Add(k2);
+
+List<Kullanicilar> yeniListe = new List<Kullanicilar>();
+yeniListe.Add(new Kullanicilar
+{
+    Isim = "Cafer",
+    Soyisim = "YILMAZ",
+    Yas = 28
+});
+
+foreach (Kullanicilar kullanici in kullaniciListesi)
+{
+    Console.WriteLine("Kullanıcı Adı: " + kullanici.Isim);
+    Console.WriteLine("Kullanıcı Soyadı: " + kullanici.Soyisim);
+    Console.WriteLine("Kullanıcı Yaşı: " + kullanici.Yas);
+}
+
+yeniListe.Clear();
+
+
+public class Kullanicilar
+{
+    private string isim;
+    private string soyisim;
+    private int yas;
+
+    public string Isim { get => isim; set => isim = value; }
+    public string Soyisim { get => soyisim; set => soyisim = value; }
+    public int Yas { get => yas; set => yas = value; }
+}
+
+
+#endregion
