@@ -261,6 +261,34 @@ internal class Program
             Console.WriteLine(item);
 
         #endregion
+
+        #region Koleksiyonlar - Dictionary
+        // Dictionary -> (key,value) şeklinde olan koleksiyonlardır
+        // key değerler unique olmalı. Runtime'da hata verir
+        Dictionary<int, string> kullanicilar = new Dictionary<int, string>();
+        kullanicilar.Add(10, "Ayşe YILMAZ");
+        kullanicilar.Add(12, "Ahmet YILMAZ");
+        kullanicilar.Add(18, "Deniz Arda");
+        kullanicilar.Add(20, "Özcan COŞAR");
+
+        // Dizi Elemanlarına Erişim : index yerine key döneriz
+        Console.WriteLine("*** Dictionary Elemanlarına Erişim ***");
+        Console.WriteLine(kullanicilar[12]);
+        foreach (var item in kullanicilar)
+            Console.WriteLine(item);
+
+        //Count -> Eleman sayısı
+        Console.WriteLine("*** Counts ****");
+        Console.WriteLine(kullanicilar.Count);
+
+        // Contains -> dizide ilgili anahtar veya değer araması yapar
+        Console.WriteLine("*** Contains ***");
+        Console.WriteLine(kullanicilar.ContainsKey(10)); //boolean
+        Console.WriteLine(kullanicilar.ContainsValue("Ahmet YILMAZ")); //boolean
+
+
+
+        #endregion
     }
 }
 public class Kullanicilar
